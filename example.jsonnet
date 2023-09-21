@@ -8,6 +8,7 @@ local kp =
   // (import 'kube-prometheus/addons/custom-metrics.libsonnet') +
   // (import 'kube-prometheus/addons/external-metrics.libsonnet') +
   // (import 'kube-prometheus/addons/pyrra.libsonnet') +
+  (import 'kube-prometheus/addons/windows.libsonnet') +
   {
     values+:: {
       common+: {
@@ -15,7 +16,6 @@ local kp =
       },
     },
   };
-
 { 'setup/0namespace-namespace': kp.kubePrometheus.namespace } +
 {
   ['setup/prometheus-operator-' + name]: kp.prometheusOperator[name]
